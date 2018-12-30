@@ -8,4 +8,6 @@ This is a customized result.tpl template for recoll's web interface.  I've added
 
 Example result is below:
 
+---
+
 ![screenshot of template result](webui-template-result.png)
