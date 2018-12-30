@@ -8,4 +8,4 @@ This is a customized result.tpl template for recoll's web interface.  I've added
 
 Example result is below:
 
-![screenshot of template result](https://github.com/packetgeek/recoll-web-ui-template/edit/master/webui-template-result.png)
+![screenshot of template result](https://github.com/packetgeek/recoll-web-ui-template/webui-template-result.png)
