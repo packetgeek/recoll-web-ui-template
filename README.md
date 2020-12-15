@@ -1,10 +1,21 @@
 # recoll-web-ui-template
 
-This is a customized result.tpl template for recoll's web interface.  I've added:
+This is a customized result.tpl template for recoll's web interface.  I have:
 
-1) a link to an edit function for the document's exif data.  I'll eventually get around to posting it on Github.  For now it's a work in progress.  (Note: the "Open / Download / Preview / Edit" line only appears when the mouse hovers above the individual result.)
+1) Modified the Open link to pull document directly from the store (assumes that the docker container for the web UI is mapped to the Apache2 directory which contains the indexed documents).  To modify the template, search result.tpl (not results.tpl) for "Open" and change:
 
-2) a display of each document's associated keywords, which recoll already indexes.  Eventually, each keyword will link to a separate listing of files associated with that keyword.  For now, it's a static display of keywords that I've embedded in my documents' exif data.  The Python code in this template is somewhat of a dirty kluge in that recoll (by default) likes to display keywords twice.  (Note: this may be a result of my using the incorrect variable.  Investigation is ongoing.)
+```c
+<a href="{{url}}">Open</a>
+```
+to
+```c
+%filename = d['url'].replace('file:///', '')
+<a href="http://localhost:83/{{filename}}" target="_new">Open</a>
+```
+
+2) Added a link to an edit function for the document's exif data.  I'll eventually get around to posting it on Github.  For now it's a work in progress.  (Note: the "Open / Download / Preview / Edit" line only appears when the mouse hovers above the individual result.)
+
+3) Added a display of each document's associated keywords, which recoll already indexes.  Eventually, each keyword will link to a separate listing of files associated with that keyword.  For now, it's a static display of keywords that I've embedded in my documents' exif data.  The Python code in this template is somewhat of a dirty kluge in that recoll (by default) likes to display keywords twice.  (Note: this may be a result of my using the incorrect variable.  Investigation is ongoing.)
 
 Example result is below:
 
